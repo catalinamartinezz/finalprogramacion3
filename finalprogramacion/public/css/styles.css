@@ -1,0 +1,379 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background: url("https://p4.wallpaperbetter.com/wallpaper/363/97/65/dark-purple-blur-gradation-wallpaper-preview.jpg") no-repeat;
+    background-size: cover;
+    font-family: 'Bebas Neue', cursive;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    
+}
+
+.main-container{
+    width: 100%;
+}
+
+
+/* detalle serie */
+.bloque-serie{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.imagen-serie{
+    width: 50%;
+    margin: 5%;
+}
+
+.serie{
+    width: 50%;
+    margin: 5% ;
+}
+
+.tituloserie{
+    font-family: 'Bebas Neue', cursive;
+    color: white;
+    font-size: 50px;
+    margin: 0%;
+}
+
+.bloque-sinopsis{
+    background-color:rgba(135, 124, 172, 0.575);
+    width:100%;
+    padding: 4%;
+}
+
+.bloque-sinopsis p{
+    text-align: justify;
+}
+
+
+/* detalle pelicula*/
+.titulo-peli{
+    font-family: 'Bebas Neue', cursive;
+    color: white;
+    font-size: 50px;
+    margin: 0%;
+    display: flex;
+}
+
+.bloque-pelicula{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.imagen-pelicula{
+    width: 50%;
+}
+
+.peli{
+    width: 50%;
+    margin: 5% ;
+}
+
+.imagen-pelicula .portada-pelicula{
+    width: 100%;
+    height: 400px;
+    margin: 5%;
+}
+
+.bloque-sinopsis-peli{
+    display: flex;
+    background-color: rgba(135, 124, 172, 0.575);
+    width:100%;
+    padding: 4%;
+}
+
+.bloque-sinopsis-peli p{
+    text-align: justify;
+}
+
+a{
+    color: white;
+}
+
+/* search-results (roni) */
+
+.separacion section{
+    display: flex;
+    height: auto;
+    justify-content: space-between;
+    
+}
+
+.none{
+    display: none;
+}
+
+.art-peliculas1{
+    border-radius: 10px;
+    background: rgba(135, 124, 172, 0.575);
+    width:15%
+}
+
+.art-peliculas1 .titulos-inicio{
+    text-align: center;
+}
+
+.art-peliculas1 p{
+    text-align: center;
+}
+.art-peliculas2{
+    border-radius: 10px;
+    background: rgba(135, 124, 172, 0.575);
+    width:15%
+}
+
+.art-peliculas2 .titulos-inicio{
+    text-align: center;
+}
+
+.art-peliculas2 p{
+    text-align: center;
+}
+
+/* pone todo uno al lado del otro */
+.main{
+    display: flex; 
+    flex-direction: row;
+}
+
+div img{
+    width: 100%;
+}
+
+/* Generos */
+
+.generos-peliculas{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.generos-series{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.peliculas-populares{
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+   
+}
+
+.series-populares{
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+   
+}
+
+.art-peliculas-generos{
+    border-radius: 8px;
+    background: rgba(135, 124, 172, 0.575);
+    width: 17%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 4px;
+    align-items: stretch;
+}
+
+.art-series-generos{
+    border-radius: 8px;
+    background: rgba(135, 124, 172, 0.575);
+    width: 17%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 4px;
+    align-items: stretch;
+}
+
+.titulos-inicio-generos{
+    font-family: 'Bebas Neue', cursive; 
+    font-size: 35px;
+    margin: 0px;
+    text-decoration: none;
+}
+
+
+.boton-mas {
+    align-items: center;
+    font-size: xxx-large;
+    display: flex;
+}
+
+/* Favoritos */
+
+.favoritos{
+    display: flex;
+    justify-content: first baseline;
+}
+
+.favoritos li {
+    list-style-type: none;
+}
+
+.titulos-body{
+    display: inline-block;
+    width: 230px;
+    height: 40px;
+    /* border-radius: 10px;
+    background-color: rgb(100, 89, 139); */
+    text-align:center;
+    justify-content: center;
+}
+   
+
+
+@media (max-width: 768px){
+/* index */
+    .toggle-nav{
+        display: none;
+    }
+    
+   .art-peliculas p{
+       display: none;
+   }
+   .art-peliculas1 p{
+    display: none;   
+    }
+    .art-peliculas2 p{
+        display: none;
+    }
+    
+    .botones1{
+        display: none;
+    }
+
+    .titulos-inicio{
+        font-size: 25px;
+    }
+    .iconos{
+        display: none;
+    }
+    .footer-abajo{
+        margin: 0px;
+        align-items: center;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    div img{
+        width: 100%;
+        height: 215px;
+    }
+    
+    /* detalle serie */
+    .bloque-serie{
+        flex-direction: column;
+        display: flex;
+        align-items:center;
+    }
+
+    .bloque-serie section{
+        width: 80%;
+    }
+
+    .portada-serie{
+        width: 100%;
+        height: auto;
+    }
+
+
+  /* detalle pelicula */
+     .bloque-pelicula{
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+    }
+
+    .bloque-pelicula section{
+        width: 80%;
+    }
+    
+    .portada-pelicula{
+        width: 100%;
+        height: auto;
+        margin: 5%;
+    }
+    
+
+    /* tamaño del article */
+    .art-peliculas{
+        width: 19%;
+    }
+    .art-peliculas2{
+        width: 19%;
+    } 
+}
+
+  @media (max-width: 430px){
+    /* index */
+    .toggle-nav{
+        display: inline-block; 
+    }
+    
+    div.botones{
+        padding: 0px;
+    }
+
+   .botones a{
+        display: none;
+    }
+    .botones1{
+        display: none;
+    }
+
+    .contenedor{
+        justify-content: center;
+    }
+
+    h2{
+        font-size: 16px;
+    }
+
+    .art-peliculas2{
+        display: none;
+    }
+
+    .art-peliculas{
+        width: 75%;
+        margin: 5px;
+    }
+
+    .peliculas-populares{
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* detalle serie */
+    .tituloserie{
+        font-size: 45px;
+    }
+    /* detalle peli */
+    .titulo-peli{
+        font-size: 36px;
+    }
+    .imagen-pelicula .portada-pelicula{
+        width: 95%;
+        height: 130px;
+        
+    }
+
+    div img{
+        width: 100%;
+        height: 400px;
+    }
+   
+}
+
+ 

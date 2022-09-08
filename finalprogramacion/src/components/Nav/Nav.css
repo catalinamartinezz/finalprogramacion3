@@ -1,0 +1,95 @@
+/* header */
+header{
+    background-color:rgba(135, 124, 172, 0.575);
+    padding:1px ;
+}
+.contenedor{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+   
+}
+
+#logo{
+    width: 91px;
+    height: auto;
+}
+
+input{
+    border-radius: 5px;
+}
+.botones{
+    padding: 8px 50px;
+    margin: 0px;
+}
+
+.botones a{
+    text-decoration: none;
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
+}
+
+.botones1{
+    padding: 8px 50px;
+    margin: 0px;
+}
+
+.botones1 a{
+    text-decoration: none;
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
+}
+
+/* INICIO */
+.toggle-nav{
+    display: none;
+    border-radius: 20px;
+   
+}
+
+.peliculas-populares{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.series-populares{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.lomasvisto-populares{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.art-peliculas{
+    border-radius: 10px;
+    background: rgba(135, 124, 172, 0.575);
+    width:15%
+}
+a img{
+    width:95%;
+    height: 290px;
+    padding: 10px 10px;
+    border: 0px;
+ }
+
+ .titulos-inicio{
+     font-family: 'Bebas Neue', cursive; 
+     font-size: 35px;
+     margin: 0px;
+ }
+.art-peliculas .titulos-inicio{
+    text-align: center;
+}
+
+.art-peliculas p{
+    text-align: center;
+}
