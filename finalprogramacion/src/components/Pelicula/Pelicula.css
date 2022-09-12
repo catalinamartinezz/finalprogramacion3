@@ -1,0 +1,33 @@
+/* INICIO */
+
+.peliculas-populares{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.lomasvisto-populares{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.art-peliculas{
+    border-radius: 10px;
+    background: rgba(135, 124, 172, 0.575);
+    width:15%
+}
+a img{
+    width:95%;
+    height: 290px;
+    padding: 10px 10px;
+    border: 0px;
+ }
+
+.art-peliculas .titulos-inicio{
+    text-align: center;
+}
+
+.art-peliculas p{
+    text-align: center;
+} 
