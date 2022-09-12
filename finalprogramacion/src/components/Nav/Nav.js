@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import './Nav.css'
 
 export default function Nav() {
@@ -6,24 +7,20 @@ export default function Nav() {
     <header>
      <nav className="contenedor">
             <div className="botones">
-                <img id="logo" src="./img/logo.png" alt=" Views logo"/>
-            </div>
-            <div>
-                <a href="index.html" className="toggle-nav">
-                    <span className="fa fa-bars"></span>
-                </a>
+                <Link to="/"><img className="logo" src={'./img/logo.png'} alt=" Views logo"/></Link>   
             </div>
             <div className="botones">
-                <a href="index.html">Series</a>
+                <Link to="/">Home</Link>
             </div>
             <div className="botones">
-                <a href="index.html">Peliculas</a>
-            </div>
-            <div className="botones1">
-                <a href="genres.html">Generos</a>
+                <Link to="/peliculas">Peliculas</Link>
             </div>
             <div className="botones">
-                <a href="favourite.html">Favoritos</a>
+                <Link to="/cartelera">Cartelera</Link>
+            </div>
+           
+            <div className="botones">
+            <Link to="/favs">Favoritos</Link>
             </div>
             <div className="botones1">
                 <form action="search-results.html" method="GET">
