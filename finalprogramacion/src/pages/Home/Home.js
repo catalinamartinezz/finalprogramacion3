@@ -39,7 +39,7 @@ class Home extends Component {
     render() {
     return (
       <>
-      <div>
+      <div >
         <h2>Peliculas Populares</h2>
       {this.state.peliculas.map(peliculas => (
           <Pelicula key={peliculas.id} peliculas={peliculas}/>
