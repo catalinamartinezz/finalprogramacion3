@@ -8,12 +8,11 @@ function Cartel ({cartel}){
 return(
 
     <>
-    <section className="peliculas-populares"> 
-             <article className="art-peliculas"> 
+             <article className="art-cartelera"> 
                 <a href="#?">
                     <img className= "img-home" src={img + poster_path} alt={title}/> 
                 </a>
-            <h2 className="titulos-inicio" >{title}</h2>
+            <h2 className="titulos-inicio-cartelera" >{title}</h2>
         <p>Descripción: {overview}</p>
         <div className='d-flex justify-content-end'>
         <button className="btn btn-primary"  >Favoritos</button>
@@ -22,7 +21,7 @@ return(
         
       </div>
     </article>
-</section>
+
     </>
 
 )

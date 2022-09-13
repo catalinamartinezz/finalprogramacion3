@@ -23,7 +23,7 @@ class Home extends Component {
              .then(datos =>{ 
                  //console.log(datos)
                 return this.setState({
-                peliculas: datos.results.slice(0,6),
+                peliculas: datos.results.slice(0,5),
                 
              })})
              .catch( err => console.log(err))
@@ -33,7 +33,7 @@ class Home extends Component {
              .then(datos =>{ 
                  //console.log(datos)
                   return this.setState({
-                 cartel: datos.results.slice(0,6),
+                 cartel: datos.results.slice(0,5),
                 
              })})
              .catch( err => console.log(err))
@@ -57,21 +57,25 @@ class Home extends Component {
     render() {
     return (
       <>
-      <div >
-        <h2>Peliculas Populares</h2>
-      {this.state.peliculas.map(peliculas => (
-          <Pelicula 
-            key={peliculas.id} 
-            peliculas={peliculas}
-            favoritos={(peliculas)=> this.handleFavoritos(peliculas)}
-            />
-      ))}
-      </div>
+      <div><h2>Peliculas Populares</h2></div>
       <div>
-        <h2>Cartelera</h2>
-      {this.state.cartel.map(cartel => (
-          <Cartel key={cartel.id} cartel={cartel}/>
-      ))}
+        <section className="peliculas-populares">
+          {this.state.peliculas.map(peliculas => (
+            <Pelicula 
+              key={peliculas.id} 
+              peliculas={peliculas}
+              favoritos={(peliculas)=> this.handleFavoritos(peliculas)}
+            />
+          ))}
+        </section>
+      </div>
+      <div><h2>Cartelera</h2></div>
+      <div>
+        <section className="peliculas-cartelera">
+          {this.state.cartel.map(cartel => (
+            <Cartel key={cartel.id} cartel={cartel}/>
+          ))}
+       </section>
       </div>
       </>
     )

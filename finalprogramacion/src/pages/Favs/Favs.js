@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Favs.css'
 import Pelicula from '../../components/Pelicula/Pelicula'
 
 export default class Favs extends Component {

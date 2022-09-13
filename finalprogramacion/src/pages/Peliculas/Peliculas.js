@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Pelicula from '../../components/Pelicula/Pelicula';
 
+
 export default class Peliculas extends Component {
     constructor() {
         super();
@@ -20,21 +21,23 @@ export default class Peliculas extends Component {
                 
              })})
              .catch( err => console.log(err))
-        
-            fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=809187852af3a04706d10c0477580eec')
-       
       }
      
     render() {
     return (
       <>
-      <div >
-        <h2>Peliculas Populares</h2>
-      {this.state.peliculas.map(peliculas => (
-          <Pelicula key={peliculas.id} peliculas={peliculas}/>
-      ))}
+      <div><h2>Peliculas Populares</h2></div>
+      <div>
+        <section className="peliculas-populares">
+          {this.state.peliculas.map(peliculas => (
+            <Pelicula 
+              key={peliculas.id} 
+              peliculas={peliculas}
+              favoritos={(peliculas)=> this.handleFavoritos(peliculas)}
+            />
+          ))}
+        </section>
       </div>
-     
       </>
     )
   }

@@ -1,0 +1,20 @@
+/* Favoritos */
+
+.favoritos{
+    display: flex;
+    justify-content: first baseline;
+}
+
+.favoritos li {
+    list-style-type: none;
+}
+
+.titulos-body{
+    display: inline-block;
+    width: 230px;
+    height: 40px;
+    /* border-radius: 10px;
+    background-color: rgb(100, 89, 139); */
+    text-align:center;
+    justify-content: center;
+}

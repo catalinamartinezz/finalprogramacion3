@@ -13,7 +13,6 @@ import {Link} from 'react-router-dom'
     //ComponentDidmount que traiga el localStorage y despues haga un .find que chequea si esta o no. si esta setState({esFavorito:true})
     
     return (
-        <section className="peliculas-populares"> 
              <article className="art-peliculas"> 
                 <a href="#?">
                     <img className= "img-home" src={img + poster_path} alt={title}/> 
@@ -26,7 +25,6 @@ import {Link} from 'react-router-dom'
         <button className="btn btn-info" onClick={vermas}>Ver Mas</button>
       </div>
     </article>
-</section>
   )
 }
 

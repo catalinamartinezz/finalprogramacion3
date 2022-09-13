@@ -1,0 +1,30 @@
+.peliculas-cartelera{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.art-cartelera{
+    border-radius: 10px;
+    background: rgba(135, 124, 172, 0.575);
+    width:15%
+}
+a img{
+    width:95%;
+    height: 290px;
+    padding: 10px 10px;
+    border: 0px;
+ }
+
+ .titulos-inicio-cartelera{
+     font-family: 'Bebas Neue', cursive; 
+     font-size: 35px;
+     margin: 0px;
+ }
+.art-cartelera .titulos-inicio-cartelera{
+    text-align: center;
+}
+
+.art p{
+    text-align: center;
+}

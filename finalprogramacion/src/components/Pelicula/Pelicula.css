@@ -1,12 +1,5 @@
 /* INICIO */
-
 .peliculas-populares{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.lomasvisto-populares{
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -24,10 +17,15 @@ a img{
     border: 0px;
  }
 
+ .titulos-inicio{
+     font-family: 'Bebas Neue', cursive; 
+     font-size: 35px;
+     margin: 0px;
+ }
 .art-peliculas .titulos-inicio{
     text-align: center;
 }
 
 .art-peliculas p{
     text-align: center;
-} 
+}
