@@ -3,7 +3,8 @@ import './Footer.css'
 
 export default function Footer(){
     return(
-       <>
+       
+       <footer>
          <section className="parte-footer">
             
             <article className="footer">
@@ -59,8 +60,9 @@ export default function Footer(){
             <p>Políticas de Privacidad |</p>
             <p>  Términos y Condiciones</p>
     
-        </div>   
-       </>
+        </div>  
+        </footer>
+       
     )
    
 }
