@@ -22,13 +22,6 @@ export default function Nav() {
             <div className="botones">
             <Link to="/favs">Favoritos</Link>
             </div>
-            <div className="botones1">
-                <form action="search-results.html" method="GET">
-                    <input className="formu" type="text" name="search" placeholder="Buscar..." value=""/> 
-                    <button type= "submit">Enviar</button>
-                    <p className="mensaje"></p>
-                </form>
-            </div>
         </nav>
         </header>
     

@@ -5,78 +5,87 @@ import './Home.css'
 
 
 class Home extends Component {
-    constructor() {
-        super();
-        this.state = {
-          peliculas: [],
-          cartel: [],
-          favoritos: []
-          
-        };
-      }    
-    componentDidMount(){
-         let favs = localStorage.getItem('favoritos')
-         console.log(favs)
-        const url = 'https://api.themoviedb.org/3/movie/popular?api_key=809187852af3a04706d10c0477580eec'
-         fetch(url)
-             .then((res)=> res.json())
-             .then(datos =>{ 
-                 //console.log(datos)
-                return this.setState({
-                peliculas: datos.results.slice(0,5),
-                
-             })})
-             .catch( err => console.log(err))
-        
-            fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=809187852af3a04706d10c0477580eec')
-        .then((res)=> res.json())
-             .then(datos =>{ 
-                 //console.log(datos)
-                  return this.setState({
-                 cartel: datos.results.slice(0,5),
-                
-             })})
-             .catch( err => console.log(err))
-      }
-     
-    handleFavoritos(pelicula){
-      if(this.state.favoritos.some(fav => pelicula.id === fav.id)){
-        console.log("verdadero")
-        this.setState({favoritos: this.state.favoritos.filter(item => item.id !== pelicula.id)}, ()=>{
-          localStorage.setItem('favoritos', JSON.stringify(this.state.favoritos))
-          //texto quitar de favoritos
+  constructor() {
+    super();
+    this.state = {
+      peliculas: [],
+      cartel: [],
+      favoritos: []
+
+    };
+  }
+  componentDidMount() {
+    let favs = localStorage.getItem('favoritos')
+    console.log(favs)
+    const url = 'https://api.themoviedb.org/3/movie/popular?api_key=809187852af3a04706d10c0477580eec'
+    fetch(url)
+      .then((res) => res.json())
+      .then(datos => {
+        //console.log(datos)
+        return this.setState({
+          peliculas: datos.results.slice(0, 5),
+
         })
-        console.log(this.state.favoritos.filter(item=>item.id !== pelicula.id))
-      }else{
-        this.setState({favoritos: [...this.state.favoritos, pelicula]}, ()=> {
-          localStorage.setItem('favoritos', JSON.stringify(this.state.favoritos))
-          //texto quitar de favoritos 
+      })
+      .catch(err => console.log(err))
+
+    fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=809187852af3a04706d10c0477580eec')
+      .then((res) => res.json())
+      .then(datos => {
+        //console.log(datos)
+        return this.setState({
+          cartel: datos.results.slice(0, 5),
+
         })
-      }
+      })
+      .catch(err => console.log(err))
+  }
+
+  handleFavoritos(pelicula) {
+    if (this.state.favoritos.some(fav => pelicula.id === fav.id)) {
+      console.log("verdadero")
+      this.setState({ favoritos: this.state.favoritos.filter(item => item.id !== pelicula.id) }, () => {
+        localStorage.setItem('favoritos', JSON.stringify(this.state.favoritos))
+        //texto quitar de favoritos
+      })
+      console.log(this.state.favoritos.filter(item => item.id !== pelicula.id))
+    } else {
+      this.setState({ favoritos: [...this.state.favoritos, pelicula] }, () => {
+        localStorage.setItem('favoritos', JSON.stringify(this.state.favoritos))
+        //texto quitar de favoritos 
+      })
     }
-    render() {
+  }
+  render() {
     return (
       <>
-      <div><h2>Peliculas Populares</h2></div>
-      <div>
-        <section className="peliculas-populares">
-          {this.state.peliculas.map(peliculas => (
-            <Pelicula 
-              key={peliculas.id} 
-              peliculas={peliculas}
-              favoritos={(peliculas)=> this.handleFavoritos(peliculas)}
-            />
-          ))}
-        </section>
-      </div>
-      <div><h2>Cartelera</h2></div>
-      <div>
-        <section className="peliculas-cartelera">
-          {this.state.cartel.map(cartel => (
-            <Cartel key={cartel.id} cartel={cartel}/>
-          ))}
-       </section>
-      </div>
+        <div className="botones1">
+          <form action="search-results.html" method="GET">
+            <input className="formu" type="text" name="search" placeholder="Buscar..." value="" />
+            <button type="submit">Enviar</button>
+            <p className="mensaje"></p>
+          </form>
+        </div>
+        <div><h2>Peliculas Populares</h2></div>
+        <div>
+          <section className="peliculas-populares">
+            {this.state.peliculas.map(peliculas => (
+              <Pelicula
+                key={peliculas.id}
+                peliculas={peliculas}
+                favoritos={(peliculas) => this.handleFavoritos(peliculas)}
+              />
+            ))}
+          </section>
+        </div>
+        <div><h2>Cartelera</h2></div>
+        <div>
+          <section className="peliculas-cartelera">
+            {this.state.cartel.map(cartel => (
+              <Cartel key={cartel.id} cartel={cartel} />
+            ))}
+          </section>
+        </div>
       </>
     )
   }

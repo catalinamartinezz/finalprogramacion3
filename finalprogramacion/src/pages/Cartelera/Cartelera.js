@@ -24,6 +24,13 @@ export default class Cartelera extends Component {
     render() {
     return (
       <>
+      <div className="botones1">
+                <form action="search-results.html" method="GET">
+                    <input className="formu" type="text" name="search" placeholder="Buscar..." value=""/> 
+                    <button type= "submit">Enviar</button>
+                    <p className="mensaje"></p>
+                </form>
+            </div>
       <div>
         <h2>Cartelera</h2>
       {this.state.cartel.map(cartel => (
