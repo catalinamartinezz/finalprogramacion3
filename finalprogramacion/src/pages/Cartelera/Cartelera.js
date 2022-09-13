@@ -6,6 +6,7 @@ export default class Cartelera extends Component {
         super();
         this.state = {
           cartel: [],
+          cargando: true,
           
         };
       }    
@@ -33,9 +34,12 @@ export default class Cartelera extends Component {
             </div>
       <div>
         <h2>Cartelera</h2>
-      {this.state.cartel.map(cartel => (
+      {this.state.cargando === false ? (
+        <p>Cragando...</p>
+      ) : (
+      this.state.cartel.map(cartel => (
           <Cartel key={cartel.id} cartel={cartel}/>
-      ))}
+      )))}
       </div>
       </>
     )

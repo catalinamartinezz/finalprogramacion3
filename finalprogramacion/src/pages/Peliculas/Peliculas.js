@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import Pelicula from '../../components/Pelicula/Pelicula';
 
 
-export default class Peliculas extends Component {
+ class Peliculas extends Component {
   constructor() {
     super();
     this.state = {
       peliculas: [],
+      cargando: true,
 
     };
   }
@@ -37,16 +38,22 @@ export default class Peliculas extends Component {
         <div><h2>Peliculas Populares</h2></div>
         <div>
           <section className="peliculas-populares">
-            {this.state.peliculas.map(peliculas => (
+            {this.state.cargando === false ? (
+              <p>Cargando...</p>
+            ) : (
+            this.state.peliculas.map(peliculas => (
               <Pelicula
                 key={peliculas.id}
                 peliculas={peliculas}
                 favoritos={(peliculas) => this.handleFavoritos(peliculas)}
               />
-            ))}
+            )))}
           </section>
         </div>
       </>
     )
   }
 }
+
+
+export default Peliculas
