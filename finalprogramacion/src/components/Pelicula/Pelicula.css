@@ -3,12 +3,14 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap
 }
 
 .art-peliculas{
     border-radius: 10px;
     background: rgba(135, 124, 172, 0.575);
-    width:15%
+    width:15%;
+    margin-top: 20px
 }
 a img{
     width:95%;
