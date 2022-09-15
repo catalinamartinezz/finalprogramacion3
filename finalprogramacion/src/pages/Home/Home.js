@@ -16,12 +16,12 @@ class Home extends Component {
   }
   componentDidMount() {
     let favs = localStorage.getItem('favoritos')
-    console.log(favs)
+    //console.log(favs)
     const url = 'https://api.themoviedb.org/3/movie/popular?api_key=809187852af3a04706d10c0477580eec'
     fetch(url)
       .then((res) => res.json())
       .then(datos => {
-        //console.log(datos)
+        console.log(datos)
         return this.setState({
           peliculas: datos.results.slice(0, 6),
 
