@@ -1,13 +1,4 @@
-
 /* detalle pelicula*/
-.titulo-peli{
-    font-family: 'Bebas Neue', cursive;
-    color: white;
-    font-size: 50px;
-    margin: 0%;
-    display: flex;
-}
-
 .bloque-pelicula{
     display: flex;
     flex-direction: row;
@@ -22,11 +13,18 @@
     width: 50%;
     margin: 5% ;
 }
-
 .imagen-pelicula .portada-pelicula{
     width: 100%;
     height: 400px;
     margin: 5%;
+}
+
+.titulo-peli{
+    font-family: 'Bebas Neue', cursive;
+    color: white;
+    font-size: 50px;
+    margin: 0%;
+    display: flex;
 }
 
 .bloque-sinopsis-peli{

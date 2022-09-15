@@ -25,7 +25,7 @@ export default class Pelicula extends Component {
           <button className="btn btn-primary" onClick={()=>this.props.favoritos(this.props.peliculas)}>Favoritos </button> {/* this.state.esFavorito? <p>Quitar</> : <p>agregarFavorito</p>*/}
           </div>
           <p onClick={this.vermas}> Ver mas</p> 
-          {this.state.descripcion == false? <></>:  <p>{this.props.peliculas.overview}</p> }
+          {this.state.descripcion === false? <></>:  <p>{this.props.peliculas.overview}</p> }
       </article>
       </>
     )

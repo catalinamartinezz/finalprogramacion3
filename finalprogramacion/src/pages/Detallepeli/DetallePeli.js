@@ -25,19 +25,21 @@ export default class DetallePeli extends Component {
     const img = 'https://image.tmdb.org/t/p/w342';
     return (
       <>
+      <section clasName="bloque-pelicula">
       <section className="imagen-pelicula">
-        <img className="portada-pelicula" src={img + this.state.detalle.poster_path} alt={this.state.detalle.title}/>
-      </section>
-      <section className="peli">
-        <article>
+          <img className="portada-pelicula" src={img + this.state.detalle.poster_path} alt={this.state.detalle.title}/>
+        </section>
+        <section className="peli">
+          <article>
             <h1 className="titulo-peli">{this.state.detalle.title}</h1>
             <p>| Calificación: {this.state.detalle.vote_average}| Duración: ${this.state.detalle.runtime}| <a className= "fav" href="favourite.html"> Agregar a favoritos</a>| Genero: {/*this.state.detalle.genres.name*/}</p>
-        </article>
-        <article className="bloque-sinopsis-peli">
+         </article>
+         <article className="bloque-sinopsis-peli">
             <p className="sinopsis"> {this.state.detalle.overview}</p>
-        </article>
-       </section>
-      </>
+          </article>
+        </section>
+      </section>
+    </>
     )
   }
 }

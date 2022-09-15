@@ -25,7 +25,7 @@ export default class Cartel extends Component {
         <button className="btn btn-primary" onClick={()=>this.props.favoritos(this.props.cartel)} >Favoritos</button> {/* this.state.esFavorito? <p>Quitar</> : <p>agregarFavorito</p>*/}
         </div>
         <p onClick= {this.vermas}>Ver Mas</p>
-        {this.state.descripcion == false? <></>: <p>{this.props.cartel.overview}</p>}
+        {this.state.descripcion === false? <></>: <p>{this.props.cartel.overview}</p>}
     </article>
       </>
     )
