@@ -59,6 +59,7 @@ export default function Footer(){
     
             <p>Políticas de Privacidad |</p>
             <p>  Términos y Condiciones</p>
+            {/* hola */}
     
         </div>  
         </footer>
