@@ -9,7 +9,7 @@ export default function Footer(){
             
             <article className="footer">
                 <ul className="iconos">
-                    <li><h2 class="titulos-footer">Nosotros</h2></li>
+                    <li><h2 className="titulos-footer">Nosotros</h2></li>
                     <li>Jacinta Villanueva</li>
                     <li>Luisina Garcia</li>
                     <li>Catalina Martinez</li>
