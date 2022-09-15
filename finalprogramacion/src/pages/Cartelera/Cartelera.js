@@ -34,12 +34,14 @@ export default class Cartelera extends Component {
             </div>
       <div>
         <h2>Cartelera</h2>
+      <section className="peliculas-cartelera">
       {this.state.cargando === false ? (
         <p>Cragando...</p>
       ) : (
       this.state.cartel.map(cartel => (
           <Cartel key={cartel.id} cartel={cartel}/>
       )))}
+      </section>
       </div>
       </>
     )
