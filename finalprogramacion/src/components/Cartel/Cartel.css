@@ -2,12 +2,14 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap
 }
 
 .art-cartelera{
     border-radius: 10px;
     background: rgba(135, 124, 172, 0.575);
-    width:15%
+    width:15%;
+    margin-top: 20px
 }
 a img{
     width:95%;
@@ -25,6 +27,6 @@ a img{
     text-align: center;
 }
 
-.art p{
+.art-cartelera p{
     text-align: center;
 }
