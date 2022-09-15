@@ -8,6 +8,7 @@ import Pelicula from '../../components/Pelicula/Pelicula';
     this.state = {
       peliculas: [],
       cargando: true,
+      nexturl: ""
 
     };
   }
@@ -16,13 +17,27 @@ import Pelicula from '../../components/Pelicula/Pelicula';
     fetch(url)
       .then((res) => res.json())
       .then(datos => {
-        //console.log(datos)
+        console.log(datos)
         return this.setState({
           peliculas: datos.results,
 
         })
       })
       .catch(err => console.log(err))
+  }
+
+  agregarMas(){
+    const url = this.state.nexturl
+    fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      this.setState({
+        nexturl: data.info.next, 
+        peliculas: this.state.peliculas.concat(data.results)
+      })
+    })
+    .catch( e => console.log(e))
   }
 
   render() {
@@ -35,6 +50,7 @@ import Pelicula from '../../components/Pelicula/Pelicula';
             <p className="mensaje"></p>
           </form>
         </div>
+        <button className='formu' onClick={() => this.agregarMas()}>Mas Peliculas</button>
         <div><h2>Peliculas Populares</h2></div>
         <div>
           <section className="peliculas-populares">
