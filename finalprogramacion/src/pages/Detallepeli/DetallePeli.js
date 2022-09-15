@@ -7,6 +7,7 @@ export default class DetallePeli extends Component {
     this.state = {
       id: this.props.match.params.id,
       detalle: {},
+      genre: "",
     };
   }
   componentDidMount() {
@@ -17,6 +18,7 @@ export default class DetallePeli extends Component {
         //console.log(datos)
         return this.setState({
           detalle: datos,
+          genre: datos.genres[0].name
         })
       })
       .catch(err => console.log(err))
@@ -32,7 +34,11 @@ export default class DetallePeli extends Component {
         <section className="peli">
           <article>
             <h1 className="titulo-peli">{this.state.detalle.title}</h1>
-            <p>| Calificación: {this.state.detalle.vote_average}| Duración: ${this.state.detalle.runtime}| <a className= "fav" href="favourite.html"> Agregar a favoritos</a>| Genero: {/*this.state.detalle.genres.name*/} |Fecha De Estreno : {this.state.detalle.release_date}</p>
+            <p>| Calificación: {this.state.detalle.vote_average}|
+             Duración: ${this.state.detalle.runtime}|
+              <a className= "fav" href="favourite.html"> Agregar a favoritos</a>|
+               Genero: {this.state.genre} |
+               Fecha De Estreno : {this.state.detalle.release_date}</p>
         </article>
   
         <article className="bloque-sinopsis-peli">

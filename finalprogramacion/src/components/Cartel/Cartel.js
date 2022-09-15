@@ -26,6 +26,9 @@ export default class Cartel extends Component {
         </div>
         <p onClick= {this.vermas}>Ver Mas</p>
         {this.state.descripcion === false? <></>: <p>{this.props.cartel.overview}</p>}
+        <Link to={`/detallepelicula/id/${this.props.cartel.id}`}>
+            <p>Ir Al Detalle</p>
+          </Link>
     </article>
       </>
     )
