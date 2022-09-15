@@ -8,7 +8,9 @@ import Pelicula from '../../components/Pelicula/Pelicula';
     this.state = {
       peliculas: [],
       cargando: true,
-      nexturl: ""
+      nexturl: "",
+      filterBy: "",
+      buscadas: []
 
     };
   }
@@ -24,6 +26,28 @@ import Pelicula from '../../components/Pelicula/Pelicula';
         })
       })
       .catch(err => console.log(err))
+  }
+
+  filtradoPeli(filtro){
+    if (filtro == ""){
+      return 
+    } else {
+      fetch(`https://api.themoviedb.org/3/search/movie/?api_key=809187852af3a04706d10c0477580eec&query=${filtro}`)
+      .then((res) => res.json())
+      .then(datos => {
+        this.setState({
+          buscadas: datos.results,
+        })
+      })
+      .catch(err => console.log(err))
+      
+    }
+  }
+
+  handleChange(e){
+    this.setState({
+      filterBy: e.target.value
+    }, ()=>{this.filtradoPeli(this.state.filterBy)})
   }
 
   agregarMas(){
@@ -44,28 +68,46 @@ import Pelicula from '../../components/Pelicula/Pelicula';
     return (
       <>
         <div className="botones1">
-          <form action="search-results.html" method="GET">
-            <input className="formu" type="text" name="search" placeholder="Buscar..." value="" />
-            <button type="submit">Enviar</button>
-            <p className="mensaje"></p>
+          <form action="" method="GET">
+            <input className="formu" type="search" name="search" placeholder="Buscar..." value={this.state.filterBy} onChange={(e)=>
+              {this.handleChange(e)}} />
           </form>
         </div>
-        <button className='formu' onClick={() => this.agregarMas()}>Mas Peliculas</button>
-        <div><h2>Peliculas Populares</h2></div>
+        {this.state.filterBy == "" ? <>
+        <div>
+          <h2>Peliculas Populares</h2>
+        </div>
         <div>
           <section className="peliculas-populares">
-            {this.state.cargando === false ? (
-              <p>Cargando...</p>
-            ) : (
-            this.state.peliculas.map(peliculas => (
+            {this.state.peliculas.map(peliculas => (
               <Pelicula
                 key={peliculas.id}
                 peliculas={peliculas}
                 favoritos={(peliculas) => this.handleFavoritos(peliculas)}
               />
-            )))}
+            ))}
+          </section>
+          {/* <button className='formu' onClick={() => this.agregarMas()}>Mas Peliculas</button> */}
+        </div>
+        </> : <>
+        <div>
+        <section className="peliculas-populares">
+
+            {this.state.buscadas.map(buscada => (
+              <Pelicula
+                key={buscada.id}
+                peliculas={buscada}
+                favoritos={(buscada) => this.handleFavoritos(buscada)}
+              />
+            ))}
           </section>
         </div>
+        
+        
+        
+        
+        </>}
+      
       </>
     )
   }
