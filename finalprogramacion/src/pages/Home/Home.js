@@ -9,6 +9,7 @@ class Home extends Component {
   constructor() {
     super();
     this.state = {
+      cargando: true,
       peliculas: [],
       cartel: [],
       favoritos: [],
@@ -99,14 +100,16 @@ class Home extends Component {
         </div>
         <div>
           <section className="peliculas-populares">
-
-            {this.state.peliculas.map(peliculas => (
+          {this.state.cargando === false ? (
+            <p>Cargando</p>
+          ) : (
+            this.state.peliculas.map(peliculas => (
               <Pelicula
                 key={peliculas.id}
                 peliculas={peliculas}
                 favoritos={(peliculas) => this.handleFavoritos(peliculas)}
               />
-            ))}
+            )))}
           </section>
         </div>
         <div>

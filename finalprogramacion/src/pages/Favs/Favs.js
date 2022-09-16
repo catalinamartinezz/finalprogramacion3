@@ -22,7 +22,7 @@ import Pelicula from '../../components/Pelicula/Pelicula'
       this.state.favoritos.map(item => (
           <Pelicula 
               key={item.id}
-              personaje={item}
+              peliculas={item}
           />
       )))}
        
