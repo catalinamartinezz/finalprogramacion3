@@ -24,8 +24,8 @@ export default class Cartel extends Component {
         <div className='d-flex justify-content-end'>
         <button className="btn btn-primary" onClick={()=>this.props.favoritos(this.props.cartel)} >Favoritos</button> {/* this.state.esFavorito? <p>Quitar</> : <p>agregarFavorito</p>*/}
         </div>
-        <p onClick= {this.vermas}>Ver Mas</p>
-        {this.state.descripcion === false? <></>: <p>{this.props.cartel.overview}</p>}
+       
+        {this.state.descripcion === false? <> <p onClick= {this.vermas}>Ver Mas</p></>: <><p onClick= {this.vermas}>Ver Menos</p> <p>{this.props.cartel.overview}</p></>}
         <Link to={`/detallepelicula/id/${this.props.cartel.id}`}>
             <p>Ir Al Detalle</p>
           </Link>

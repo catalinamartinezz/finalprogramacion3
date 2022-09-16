@@ -68,7 +68,7 @@ import Pelicula from '../../components/Pelicula/Pelicula';
     return (
       <>
         <div className="botones1">
-          <form action="" method="GET">
+          <form>
             <input className="formu" type="search" name="search" placeholder="Buscar..." value={this.state.filterBy} onChange={(e)=>
               {this.handleChange(e)}} />
           </form>

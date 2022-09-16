@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Cartel from '../../components/Cartel/Cartel';
+import Pelicula from '../../components/Pelicula/Pelicula';
 
 export default class Cartelera extends Component {
     constructor() {
@@ -7,6 +8,8 @@ export default class Cartelera extends Component {
         this.state = {
           cartel: [],
           cargando: true,
+          filterBy:"",
+          buscadas: []
           
         };
       }    
@@ -21,17 +24,38 @@ export default class Cartelera extends Component {
              })})
              .catch( err => console.log(err))
       }
+      filtradoPeli(filtro){
+        if (filtro == ""){
+          return 
+        } else {
+          fetch(`https://api.themoviedb.org/3/search/movie/?api_key=809187852af3a04706d10c0477580eec&query=${filtro}`)
+          .then((res) => res.json())
+          .then(datos => {
+            this.setState({
+              buscadas: datos.results,
+            })
+          })
+          .catch(err => console.log(err))
+          
+        }
+      }
+    
+      handleChange(e){
+        this.setState({
+          filterBy: e.target.value
+        }, ()=>{this.filtradoPeli(this.state.filterBy)})
+      }
      
     render() {
     return (
       <>
       <div className="botones1">
-                <form action="search-results.html" method="GET">
-                    <input className="formu" type="text" name="search" placeholder="Buscar..." value=""/> 
-                    <button type= "submit">Enviar</button>
-                    <p className="mensaje"></p>
-                </form>
-            </div>
+          <form>
+            <input className="formu" type="search" name="search" placeholder="Buscar..." value={this.state.filterBy} onChange={(e)=>
+              {this.handleChange(e)}} />
+          </form>
+        </div>
+        {this.state.filterBy == "" ? <>
       <div>
         <h2>Cartelera</h2>
       <section className="peliculas-cartelera">
@@ -43,7 +67,20 @@ export default class Cartelera extends Component {
       )))}
       </section>
       </div>
-      </>
+      </> : <>
+        <div>
+        <section className="peliculas-populares">
+
+            {this.state.buscadas.map(buscada => (
+              <Pelicula
+                key={buscada.id}
+                peliculas={buscada}
+                favoritos={(buscada) => this.handleFavoritos(buscada)}
+              />
+            ))}
+          </section>
+        </div>
+      </>}</>
     )
   }
 }
