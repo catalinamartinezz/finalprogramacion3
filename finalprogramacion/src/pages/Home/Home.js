@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component }from 'react'
 import Pelicula from '../../components/Pelicula/Pelicula';
 import Cartel from '../../components/Cartel/Cartel';
 import './Home.css'
+import { Link } from 'react-router-dom'
 
 
 class Home extends Component {
@@ -91,7 +92,10 @@ class Home extends Component {
         </div>
         {this.state.filterBy== "" ?<>
         <div >
+        <Link to={'/peliculas'}>
           <h2>Peliculas Populares</h2>
+        </Link>
+          
         </div>
         <div>
           <section className="peliculas-populares">
@@ -106,7 +110,10 @@ class Home extends Component {
           </section>
         </div>
         <div>
+        <Link to={'/cartelera'}>
           <h2>Cartelera</h2>
+        </Link>
+          
         </div>
         <div>
           <section className="peliculas-cartelera">
