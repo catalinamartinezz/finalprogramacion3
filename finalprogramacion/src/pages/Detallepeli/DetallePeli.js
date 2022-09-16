@@ -34,9 +34,9 @@ export default class DetallePeli extends Component {
         <section className="peli">
           <article>
             <h1 className="titulo-peli">{this.state.detalle.title}</h1>
-            <p>| Calificación: {this.state.detalle.vote_average}|
-             Duración: ${this.state.detalle.runtime}|
-              <a className= "fav" href="favourite.html"> Agregar a favoritos</a>|
+            <p>| Calificación: {this.state.detalle.vote_average} |
+             Duración: ${this.state.detalle.runtime} |
+              <a className= "fav" href="favourite.html"> Agregar a favoritos</a> |
                Genero: {this.state.genre} |
                Fecha De Estreno : {this.state.detalle.release_date}</p>
         </article>
