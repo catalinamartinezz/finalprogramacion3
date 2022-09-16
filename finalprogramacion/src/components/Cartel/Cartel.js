@@ -17,6 +17,7 @@ export default class Cartel extends Component {
     return (
       <>
        <article className="art-cartelera"> 
+       
        <Link to={`/detallepelicula/id/${this.props.cartel.id}`}>
             <img src={`${img + this.props.cartel.poster_path}`}  className= "img-home" alt=""/>
         </Link>

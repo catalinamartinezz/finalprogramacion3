@@ -10,11 +10,13 @@ import Pelicula from '../../components/Pelicula/Pelicula';
       cargando: true,
       nexturl: "",
       filterBy: "",
-      buscadas: []
+      buscadas: [],
+      favoritos: []
 
     };
   }
   componentDidMount() {
+    this.setState({favoritos: localStorage.getItem('favoritos') || []})
     const url = 'https://api.themoviedb.org/3/movie/popular?api_key=809187852af3a04706d10c0477580eec'
     fetch(url)
       .then((res) => res.json())

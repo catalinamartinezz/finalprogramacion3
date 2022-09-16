@@ -9,11 +9,13 @@ export default class Cartelera extends Component {
           cartel: [],
           cargando: true,
           filterBy:"",
-          buscadas: []
+          buscadas: [],
+       
           
         };
       }    
     componentDidMount(){
+     
             fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=809187852af3a04706d10c0477580eec')
         .then((res)=> res.json())
              .then(datos =>{ 

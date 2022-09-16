@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import './Favs.css'
 import Pelicula from '../../components/Pelicula/Pelicula'
+import Cartel from '../../components/Cartel/Cartel'
 
  class Favs extends Component {
   constructor(){
     super()
     this.state={
       favoritos: [],
-      cargando: true,
+      
     }
   }
   componentDidMount(){
@@ -16,15 +17,13 @@ import Pelicula from '../../components/Pelicula/Pelicula'
   render() {
     return (
       <section className="peliculas-populares"> 
-      {this.state.cargando === false ? (
-      <p>Cargando...</p> 
-      ) : (
-      this.state.favoritos.map(item => (
+      {this.state.favoritos.map(item => (
           <Pelicula 
               key={item.id}
               peliculas={item}
           />
-      )))}
+          
+      ))}
        
       </section>
       
