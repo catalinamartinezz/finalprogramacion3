@@ -7,6 +7,8 @@ export default class Cartel extends Component {
         super(props)
         this.state = {
           descripcion: false,
+          favoritos: false
+         
         }
       }  
     vermas= ()=> {

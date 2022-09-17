@@ -16,6 +16,7 @@ import Cartel from '../../components/Cartel/Cartel'
   }
   render() {
     return (
+      <>
       <section className="peliculas-populares"> 
       {this.state.favoritos.map(item => (
           <Pelicula 
@@ -27,6 +28,7 @@ import Cartel from '../../components/Cartel/Cartel'
        
       </section>
       
+      </>
     )
   }
 }

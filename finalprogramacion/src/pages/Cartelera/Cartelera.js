@@ -10,12 +10,13 @@ export default class Cartelera extends Component {
           cargando: true,
           filterBy:"",
           buscadas: [],
+          favoritos: []
        
           
         };
       }    
     componentDidMount(){
-     
+      this.setState({favoritos: JSON.parse(localStorage.getItem('favoritos')) || []})
             fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=809187852af3a04706d10c0477580eec')
         .then((res)=> res.json())
              .then(datos =>{ 
@@ -47,7 +48,21 @@ export default class Cartelera extends Component {
           filterBy: e.target.value
         }, ()=>{this.filtradoPeli(this.state.filterBy)})
       }
-     
+      handleFavoritosCartel(cartel) {
+        if (this.state.favoritos.some(fav => cartel.id === fav.id)) {
+          console.log("verdadero")
+          this.setState({ favoritos: this.state.favoritos.filter(item => item.id !== cartel.id) }, () => {
+            localStorage.setItem('favoritos', JSON.stringify(this.state.favoritos))
+            //texto quitar de favoritos
+          })
+          console.log(this.state.favoritos.filter(item => item.id !== cartel.id))
+        } else {
+          this.setState({ favoritos: [...this.state.favoritos, cartel] }, () => {
+            localStorage.setItem('favoritos', JSON.stringify(this.state.favoritos))
+            //texto quitar de favoritos 
+          })
+        }
+    }
     render() {
     return (
       <>
@@ -65,14 +80,17 @@ export default class Cartelera extends Component {
         <p>Cragando...</p>
       ) : (
       this.state.cartel.map(cartel => (
-          <Cartel key={cartel.id} cartel={cartel}/>
+          <Cartel 
+          key={cartel.id} 
+          cartel={cartel}
+          favoritos={(cartel) => this.handleFavoritosCartel(cartel)}
+          />
       )))}
       </section>
       </div>
       </> : <>
         <div>
         <section className="peliculas-populares">
-
             {this.state.buscadas.map(buscada => (
               <Pelicula
                 key={buscada.id}

@@ -81,6 +81,21 @@ class Home extends Component {
       })
     }
   }
+    handleFavoritosCartel(cartel) {
+      if (this.state.favoritos.some(fav => cartel.id === fav.id)) {
+        console.log("verdadero")
+        this.setState({ favoritos: this.state.favoritos.filter(item => item.id !== cartel.id) }, () => {
+          localStorage.setItem('favoritos', JSON.stringify(this.state.favoritos))
+          //texto quitar de favoritos
+        })
+        console.log(this.state.favoritos.filter(item => item.id !== cartel.id))
+      } else {
+        this.setState({ favoritos: [...this.state.favoritos, cartel] }, () => {
+          localStorage.setItem('favoritos', JSON.stringify(this.state.favoritos))
+          //texto quitar de favoritos 
+        })
+      }
+  }
   render() {
     return (
       <>
@@ -123,6 +138,7 @@ class Home extends Component {
               <Cartel 
               key={cartel.id} 
               cartel={cartel}
+              favoritos={(cartel) => this.handleFavoritos(cartel)}
               />
             ))}
           </section>
