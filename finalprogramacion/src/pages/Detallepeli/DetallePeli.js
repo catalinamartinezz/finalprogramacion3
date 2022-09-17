@@ -8,9 +8,11 @@ export default class DetallePeli extends Component {
       id: this.props.match.params.id,
       detalle: {},
       genre: "",
+      favoritos: []
     };
   }
   componentDidMount() {
+    this.setState({favoritos: JSON.parse(localStorage.getItem('favoritos')) || []})
     const url = `https://api.themoviedb.org/3/movie/${this.state.id}?api_key=809187852af3a04706d10c0477580eec`
     fetch(url)
       .then((res) => res.json())
@@ -22,6 +24,21 @@ export default class DetallePeli extends Component {
         })
       })
       .catch(err => console.log(err))
+  }
+  handleFavoritos(pelicula) {
+    if (this.state.favoritos.some(fav => pelicula.id === fav.id)) {
+      console.log("verdadero")
+      this.setState({ favoritos: this.state.favoritos.filter(item => item.id !== pelicula.id) }, () => {
+        localStorage.setItem('favoritos', JSON.stringify(this.state.favoritos))
+        //texto quitar de favoritos
+      })
+      console.log(this.state.favoritos.filter(item => item.id !== pelicula.id))
+    } else {
+      this.setState({ favoritos: [...this.state.favoritos, pelicula] }, () => {
+        localStorage.setItem('favoritos', JSON.stringify(this.state.favoritos))
+        //texto quitar de favoritos 
+      })
+    }
   }
   render() {
     const img = 'https://image.tmdb.org/t/p/w342';
@@ -36,9 +53,11 @@ export default class DetallePeli extends Component {
             <h1 className="titulo-peli">{this.state.detalle.title}</h1>
             <p>| Calificación: {this.state.detalle.vote_average} |
              Duración: ${this.state.detalle.runtime} |
-              <a className= "fav" href="favourite.html"> Agregar a favoritos</a> |
                Genero: {this.state.genre} |
                Fecha De Estreno : {this.state.detalle.release_date}</p>
+               <div className='d-flex justify-content-end'>
+          <button className="btn btn-primary" onClick={()=>this.props.favoritos(this.props.peliculas)} >Favoritos</button> {/* this.state.esFavorito? <p>Quitar</> : <p>agregarFavorito</p>*/}
+          </div>
         </article>
   
         <article className="bloque-sinopsis-peli">
