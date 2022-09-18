@@ -33,11 +33,11 @@ export default class Cartel extends Component {
         <div className='d-flex justify-content-end'>
         <button className="btn btn-light" onClick={()=>this.handleAgregar()} >{this.state.agregar ? 'Quitar de Favoritos' : 'Agregar a Favoritos'}</button> 
         </div>
-      
-        {this.state.descripcion === false? <> <p onClick= {this.vermas}>Ver Mas</p></>: <><p onClick= {this.vermas}>Ver Menos</p> <p>{this.props.cartel.overview}</p></>}
         <Link to={`/detallepelicula/id/${this.props.cartel.id}`}>
             <p>Ir Al Detalle</p>
           </Link>
+        {this.state.descripcion === false? <> <p onClick= {this.vermas}>Ver Mas</p></>: <><p onClick= {this.vermas}>Ver Menos</p> <p>{this.props.cartel.overview}</p></>}
+       
     </article>
       </>
     )

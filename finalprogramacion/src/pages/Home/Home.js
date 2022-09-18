@@ -100,7 +100,7 @@ class Home extends Component {
     return (
       <>
         <div className="botones1">
-          <form action="" method="GET">
+          <form >
             <input className="formu" type="search" name="search" placeholder="Buscar..." value={this.state.filterBy} onChange={(e)=>
               {this.handleChange(e)}}/>
           </form>
@@ -109,7 +109,7 @@ class Home extends Component {
         <div >
         <h2>Peliculas Populares</h2>
         <Link to={'/peliculas'}>
-          <h2>Ver todas</h2>
+          <p>Ver todas</p>
         </Link>
           
         </div>
@@ -130,7 +130,7 @@ class Home extends Component {
         <div>
         <h2>Cartelera</h2>
         <Link to={'/cartelera'}>
-          <h2>Ver todas</h2>
+          <p>Ver todas</p>
         </Link>
           
         </div>

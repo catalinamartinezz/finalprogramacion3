@@ -9,7 +9,10 @@
     border-radius: 10px;
     background: rgba(135, 124, 172, 0.575);
     width:15%;
-    margin-top: 20px
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 a img{
     width:95%;
