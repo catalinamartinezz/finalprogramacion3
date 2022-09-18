@@ -14,6 +14,21 @@ import Cartel from '../../components/Cartel/Cartel'
   componentDidMount(){
     this.setState({favoritos: JSON.parse(localStorage.getItem('favoritos'))})
   }
+  handleFavoritos(pelicula) {
+    if (this.state.favoritos.some(fav => pelicula.id === fav.id)) {
+      console.log("verdadero")
+      this.setState({ favoritos: this.state.favoritos.filter(item => item.id !== pelicula.id) }, () => {
+        localStorage.setItem('favoritos', JSON.stringify(this.state.favoritos))
+        //texto quitar de favoritos
+      })
+      console.log(this.state.favoritos.filter(item => item.id !== pelicula.id))
+    } else {
+      this.setState({ favoritos: [...this.state.favoritos, pelicula] }, () => {
+        localStorage.setItem('favoritos', JSON.stringify(this.state.favoritos))
+        //texto quitar de favoritos 
+      })
+    }
+  }
   render() {
     return (
       <>
@@ -22,6 +37,7 @@ import Cartel from '../../components/Cartel/Cartel'
           <Pelicula 
               key={item.id}
               peliculas={item}
+              favoritos={(peliculas) => this.handleFavoritos(peliculas)}
           />
           
       ))}

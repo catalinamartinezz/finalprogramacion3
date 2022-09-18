@@ -26,7 +26,8 @@ export default class Pelicula extends Component {
           </Link>
           <h2 className="titulos-inicio" >{this.props.peliculas.title}</h2>
           <div className='d-flex justify-content-end'>
-          <button className="btn btn-primary" onClick={()=>this.props.favoritos(this.props.peliculas)} >Favoritos</button> {/* this.state.esFavorito? <p>Quitar</> : <p>agregarFavorito</p>*/}
+         
+          <button className="btn btn-primary" onClick={()=>this.props.favoritos(this.props.peliculas)} >Favoritos</button> 
           </div>
         
           {this.state.descripcion === false ? <><p onClick={this.vermas}> Ver mas</p></> : <>  <p onClick={this.vermas}> Ver menos</p> <p>{this.props.peliculas.overview}</p></>}
