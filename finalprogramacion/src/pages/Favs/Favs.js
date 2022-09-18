@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Favs.css'
 import Pelicula from '../../components/Pelicula/Pelicula'
-import Cartel from '../../components/Cartel/Cartel'
+
 
  class Favs extends Component {
   constructor(){

@@ -8,7 +8,8 @@ export default class DetallePeli extends Component {
       id: this.props.match.params.id,
       detalle: {},
       genre: "",
-      favoritos: []
+      favoritos: [], 
+      agregar: []
     };
   }
   componentDidMount() {
@@ -40,6 +41,9 @@ export default class DetallePeli extends Component {
       })
     }
   }
+  handleagregar(){
+    this.setState({agregar: !this.state.agregar}, ()=>{this.handleFavoritos(this.state.detalle)})
+  }
   render() {
     const img = 'https://image.tmdb.org/t/p/w342';
     return (
@@ -56,7 +60,7 @@ export default class DetallePeli extends Component {
                Genero: {this.state.genre} |
                Fecha De Estreno : {this.state.detalle.release_date}</p>
                <div className='d-flex justify-content-end'>
-          <button className="btn btn-primary" onClick={()=>this.props.favoritos(this.props.peliculas)} >Favoritos</button> {/* this.state.esFavorito? <p>Quitar</> : <p>agregarFavorito</p>*/}
+          <button className="btn btn-primary" onClick={()=> this.handleagregar()} >{this.state.agregar ? 'Agregar de favoritos' : 'Quitar de favoritos'}</button> 
           </div>
         </article>
   
