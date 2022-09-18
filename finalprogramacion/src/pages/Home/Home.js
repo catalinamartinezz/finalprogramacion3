@@ -107,8 +107,9 @@ class Home extends Component {
         </div>
         {this.state.filterBy === "" ?<>
         <div >
+        <h2>Peliculas Populares</h2>
         <Link to={'/peliculas'}>
-          <h2>Peliculas Populares</h2>
+          <h2>Ver todas</h2>
         </Link>
           
         </div>
@@ -127,8 +128,9 @@ class Home extends Component {
           </section>
         </div>
         <div>
+        <h2>Cartelera</h2>
         <Link to={'/cartelera'}>
-          <h2>Cartelera</h2>
+          <h2>Ver todas</h2>
         </Link>
           
         </div>
