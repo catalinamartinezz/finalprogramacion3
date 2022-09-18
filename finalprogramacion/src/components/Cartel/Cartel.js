@@ -29,10 +29,11 @@ export default class Cartel extends Component {
             <img src={`${img + this.props.cartel.poster_path}`}  className= "img-home" alt=""/>
         </Link>
       <h2 className="titulos-inicio-cartelera" >{this.props.cartel.title}</h2>
+      
         <div className='d-flex justify-content-end'>
-        <button className="btn btn-primary" onClick={()=>this.handleAgregar()} >{this.state.agregar ? 'Quitar de Favoritos' : 'Agregar a Favoritos'}</button> 
+        <button className="btn btn-light" onClick={()=>this.handleAgregar()} >{this.state.agregar ? 'Quitar de Favoritos' : 'Agregar a Favoritos'}</button> 
         </div>
-       
+      
         {this.state.descripcion === false? <> <p onClick= {this.vermas}>Ver Mas</p></>: <><p onClick= {this.vermas}>Ver Menos</p> <p>{this.props.cartel.overview}</p></>}
         <Link to={`/detallepelicula/id/${this.props.cartel.id}`}>
             <p>Ir Al Detalle</p>

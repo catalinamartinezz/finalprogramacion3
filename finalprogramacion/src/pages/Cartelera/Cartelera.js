@@ -27,7 +27,7 @@ export default class Cartelera extends Component {
              .catch( err => console.log(err))
       }
       filtradoPeli(filtro){
-        if (filtro == ""){
+        if (filtro === ""){
           return 
         } else {
           fetch(`https://api.themoviedb.org/3/search/movie/?api_key=809187852af3a04706d10c0477580eec&query=${filtro}`)
@@ -84,7 +84,7 @@ export default class Cartelera extends Component {
               {this.handleChange(e)}} />
           </form>
         </div>
-        {this.state.filterBy == "" ? <>
+        {this.state.filterBy === "" ? <>
       <div>
         <h2>Cartelera</h2>
       <section className="peliculas-cartelera">

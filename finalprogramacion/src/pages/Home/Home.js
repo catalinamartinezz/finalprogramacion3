@@ -45,7 +45,7 @@ class Home extends Component {
   }
 
   filtradoPeli(filtro){
-    if (filtro == ""){
+    if (filtro === ""){
       return 
     } else {
       fetch(`https://api.themoviedb.org/3/search/movie/?api_key=809187852af3a04706d10c0477580eec&query=${filtro}`)
@@ -105,7 +105,7 @@ class Home extends Component {
               {this.handleChange(e)}}/>
           </form>
         </div>
-        {this.state.filterBy== "" ?<>
+        {this.state.filterBy === "" ?<>
         <div >
         <Link to={'/peliculas'}>
           <h2>Peliculas Populares</h2>

@@ -8,6 +8,7 @@ import Pelicula from '../../components/Pelicula/Pelicula'
     super()
     this.state={
       favoritos: [],
+      cargando: true
       
     }
   }
@@ -33,14 +34,17 @@ import Pelicula from '../../components/Pelicula/Pelicula'
     return (
       <>
       <section className="peliculas-populares"> 
-      {this.state.favoritos.map(item => (
+      {this.state.cargando === false ? (
+            <p>Cargando</p>
+          ) : (
+      this.state.favoritos.map(item => (
           <Pelicula 
               key={item.id}
               peliculas={item}
               favoritos={(peliculas) => this.handleFavoritos(peliculas)}
           />
           
-      ))}
+      )))}
        
       </section>
       
