@@ -10,20 +10,19 @@ export default class Cartelera extends Component {
           cargando: true,
           filterBy:"",
           buscadas: [],
-          favoritos: []
-       
-          
+          favoritos: [],
+          nexturl: "",
         };
       }    
     componentDidMount(){
       this.setState({favoritos: JSON.parse(localStorage.getItem('favoritos')) || []})
-            fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=809187852af3a04706d10c0477580eec')
+            fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=809187852af3a04706d10c0477580eec&page=1')
         .then((res)=> res.json())
              .then(datos =>{ 
                  //console.log(datos)
                   return this.setState({
                  cartel: datos.results,
-                
+                 nexturl:`https://api.themoviedb.org/3/movie/popular?api_key=809187852af3a04706d10c0477580eec&page=2`
              })})
              .catch( err => console.log(err))
       }
@@ -63,6 +62,19 @@ export default class Cartelera extends Component {
           })
         }
     }
+    agregarMas() {
+      const url = this.state.nexturl
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          console.log(data)
+          this.setState({
+            nexturl: `https://api.themoviedb.org/3/movie/popular?api_key=809187852af3a04706d10c0477580eec&page=3`,
+            cartel: this.state.cartel.concat(data.results)
+          })
+        })
+        .catch(e => console.log(e))
+    }
     render() {
     return (
       <>
@@ -87,6 +99,7 @@ export default class Cartelera extends Component {
           />
       )))}
       </section>
+        <button className="btn btn-primary" onClick={()=>this.agregarMas()} >Cargar mas informacion</button>
       </div>
       </> : <>
         <div>
